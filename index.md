@@ -7,7 +7,7 @@ authors:
 affiliations:
     <br>POSTECH
     <br><br><p style="font-style:italic;">The IEEE/CVF Computer Vision and Pattern Recognition (CVPR) 2026</p>
-paper:
+paper: https://woo525.github.io/DEBIR
 code: https://github.com/woo525/DEBIR
 ---
 
