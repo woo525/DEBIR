@@ -3,9 +3,9 @@ layout: project_page
 permalink: /
 title: Dynamic Exposure Burst Image Restoration
 authors:
-    <A href="https://woo525.github.io/">Woohyeok Kim</A> <A href="https://rimchang.github.io/">Jaesung Rim</A> <A href="">Daeyeon Kim</A> <A href="https://www.scho.pe.kr/home">Sunghyun Cho</A>
+    <A href="https://woo525.github.io/">Woohyeok Kim</A> &emsp; <A href="https://rimchang.github.io/">Jaesung Rim</A> &emsp; <A href="">Daeyeon Kim</A> &emsp; <A href="https://www.scho.pe.kr/home">Sunghyun Cho</A>
 affiliations:
-    POSTECH
+    <br>POSTECH
     <br><br><p style="font-style:italic;">The IEEE/CVF Computer Vision and Pattern Recognition (CVPR) 2026</p>
 paper:
 code: https://github.com/woo525/DEBIR
