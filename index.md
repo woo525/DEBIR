@@ -1,4 +1,4 @@
----
+<img width="1442" height="125" alt="image" src="https://github.com/user-attachments/assets/6960733e-975c-4d95-af41-e7947b707bde" />---
 layout: project_page
 permalink: /
 title: Dynamic Exposure Burst Image Restoration
@@ -31,13 +31,24 @@ Furthermore, we validate the effectiveness of our approach on a real-world camer
 ---
 
 ## Method
-![overview](/static/image/overview-1.png) <span style="color:gray"> *Overview of the proposed ParamISP framework. The full pipeline is constructed by combining learnable networks (ParamNet, LocalNet, GlobalNet) with invertible canonical camera operations (CanoNet). CanoNet consists of differentiable operations without learnable weights, where WB and CST denote white balance and color space transform, respectively.* </span>
+![overview](/static/image/pipeline.png) <span style="color:gray"> *Overview of our pipeline. BAENet predicts the exposure times of each burst image from a preview image. Differentiable Burst Simulator generates burst images according to the exposure times. The restoration network then reconstructs a high-quality image from them. During inference, the simulator is removed, and the restoration network processes real burst images captured by our camera system.* </span>
 <br/><br/>
 
-![paramnet](/static/image/paramnet-1.png) <span style="color:gray"> *Architecture of ParamNet. (a) Given camera optical parameters, ParamNet estimates optical parameter features used for modulating the LocalNet and GlobalNet. (b) In order to deal with different scales and non-linearly distributed values of optical parameters, we propose to use non-linear equalization that exploits multiple non-linear mapping functions.* </span>
+> In this paper, we propose a novel burst image restoration pipeline, Dynamic Exposure Burst Image Restoration (DEBIR), which produces a single clean RAW image from burst RAW images in low-light conditions. 
+DEBIR enables effective burst image restoration by adaptively predicting an optimal exposure time for each burst image based on the shooting environment. 
+To this end, DEBIR consists of a novel Burst Auto-Exposure Network (BAENet) and a burst image restoration network. 
+BAENet determines the optimal exposure times for burst images, which maximize the restoration network performance, based on a preview image, current exposure settings, and motion information. 
+The imaging system then captures burst images using these predicted exposure times, and the restoration network processes them to restore a clean, blur-free, and noise-free image.
+
+## Analysis
+![overview](/static/image/analysis.png) <span style="color:gray"> ** </span>
 <br/><br/>
 
-> Given a target camera, our goal is to learn its forward and inverse ISP processes that change with respect to camera parameters. To accomplish this, ParamISP is designed to have a pair of forward (RAW-to-sRGB) and inverse (sRGB-to-RAW) ISP networks. Both networks are equipped with ParamNet so that they adaptively operate based on camera parameters. In ParamISP, we classify camera parameters into two distinct categories: optical parameters (including exposure time, sensitivity, aperture size, and focal length) and canonical parameters (Bayer pattern, white balance coefficients, and a color correction matrix). To harness the canonical parameters, our ISP networks incorporate CanoNet, a subnetwork that performs canonical ISP operations without learnable weights. For the optical parameters, we introduce ParamNet, which is the key component to dynamically control the behavior of the ISP networks based on the optical parameters.
+> In this paper, we propose a novel burst image restoration pipeline, Dynamic Exposure Burst Image Restoration (DEBIR), which produces a single clean RAW image from burst RAW images in low-light conditions. 
+DEBIR enables effective burst image restoration by adaptively predicting an optimal exposure time for each burst image based on the shooting environment. 
+To this end, DEBIR consists of a novel Burst Auto-Exposure Network (BAENet) and a burst image restoration network. 
+BAENet determines the optimal exposure times for burst images, which maximize the restoration network performance, based on a preview image, current exposure settings, and motion information. 
+The imaging system then captures burst images using these predicted exposure times, and the restoration network processes them to restore a clean, blur-free, and noise-free image.
 
 ## Results
 #### Qualitative
