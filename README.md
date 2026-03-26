@@ -36,7 +36,7 @@ Burst image restoration aims to reconstruct a high-quality image from burst imag
  
 ### Training
 
-[\[Dataset example\]](https://drive.google.com/drive/folders/1ZCi3ZXLeM7Ary6eWlVaVTTDm-kWcXWjU?usp=sharing) [\[Official weights\]](https://drive.google.com/drive/folders/1ZCi3ZXLeM7Ary6eWlVaVTTDm-kWcXWjU?usp=sharing)
+[\[Official weights\]](https://drive.google.com/drive/folders/13MfH52gQVCwDvasXscaVnv6zUwokCBJe)
 
 
         # [Stage-1]
