@@ -63,3 +63,8 @@ Burst image restoration aims to reconstruct a high-quality image from burst imag
   year={2026}
 }
 ```
+
+### Contact
+If you have any questions, please feel free to contact woohyeok@postech.ac.kr  
+
+**Acknowledgment:** This code is based on [\[Burstormer\]](https://github.com/akshaydudhane16/Burstormer), [\[EMA-VFI\]](https://github.com/MCG-NJU/EMA-VFI), and [\[RAFT\]](https://github.com/princeton-vl/RAFT) 
