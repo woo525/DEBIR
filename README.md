@@ -28,11 +28,11 @@ Burst image restoration aims to reconstruct a high-quality image from burst imag
       CUDA_VISIBLE_DEVICES=0 python synthesize_dataset_for_stage1.py
 
 ### Environment Setting
-* Ubuntu 20.04
-* Python 3.10
-* PyTorch 1.12.1
 
-      pip install -r requirements.txt
+      cd ../ # DEBIR
+      conda env create -f install.yml
+      conda init
+      conda activate DEBIR
  
 ### Training
 As described in the paper, ParamISP is trained in two stages for both the inverse and forward directions: pre-training and fine-tuning. Additionally, before applying it to applications, further joint fine-tuning can be conducted. We provide a small dataset example and the official weights reported in the paper to enable the execution of the code. You can set the dataset path through the **.env** file.
