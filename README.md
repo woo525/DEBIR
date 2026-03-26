@@ -29,44 +29,37 @@ Burst image restoration aims to reconstruct a high-quality image from burst imag
 
 ### Environment Setting
 
-      cd ../ # DEBIR
+      cd ../ # DEBIR/
       conda env create -f install.yml
       conda init
       conda activate DEBIR
  
 ### Training
-As described in the paper, ParamISP is trained in two stages for both the inverse and forward directions: pre-training and fine-tuning. Additionally, before applying it to applications, further joint fine-tuning can be conducted. We provide a small dataset example and the official weights reported in the paper to enable the execution of the code. You can set the dataset path through the **.env** file.
 
 [\[Dataset example\]](https://drive.google.com/drive/folders/1ZCi3ZXLeM7Ary6eWlVaVTTDm-kWcXWjU?usp=sharing) [\[Official weights\]](https://drive.google.com/drive/folders/1ZCi3ZXLeM7Ary6eWlVaVTTDm-kWcXWjU?usp=sharing)
-#### 1. Pre-training
 
-        CUDA_VISIBLE_DEVICES=0 python models/paramisp.py -o demo --inverse train
 
-#### 2. Fine-tuning
+        ########## [Stage-1] ##########
+        CUDA_VISIBLE_DEVICES=0,1,2,3 python train_stage1.py
         
-        CUDA_VISIBLE_DEVICES=0 python models/paramisp.py -o demo --inverse train --camera D7000
+        ########## [Stage-2] ##########
+        CUDA_VISIBLE_DEVICES=0 python prepare_stage2w.py # make pseudo-gt 
+        CUDA_VISIBLE_DEVICES=0,1,2,3 python train_stage2w.py # stage-2 warm-up
+        CUDA_VISIBLE_DEVICES=0,1,2,3 python train_stage2m.py # stage-2 main
+        
+        ########## [Stage-3] ##########
+        CUDA_VISIBLE_DEVICES=0,1,2,3 python train_stage3.py
 
-#### 3. Joint fine-tuning
-
-        CUDA_VISIBLE_DEVICES=0,1 python models/paramisp_joint.py -o demo train --camera D7000 --pisp-inv weights/fine_tuning/inverse/D7000.ckpt --pisp-fwd weights/fine_tuning/forward/D7000.ckpt
-
-
-
-### Test
+### >> Test
  
-        CUDA_VISIBLE_DEVICES=0 python models/paramisp.py -o demo --inverse test --ckpt weights/fine_tuning/inverse/D7000.ckpt --camera D7000
-
-### Inference
- 
-        CUDA_VISIBLE_DEVICES=0 python models/paramisp.py -o demo --inverse predict --ckpt weights/fine_tuning/inverse/D7000.ckpt --camera D7000
+        CUDA_VISIBLE_DEVICES=0 python test.py
 
 ### Citation
 ```
-@inproceedings{kim2024paramisp,
-  title={ParamISP: Learned Forward and Inverse ISPs using Camera Parameters},
-  author={Kim, Woohyeok and Kim, Geonu and Lee, Junyong and Lee, Seungyong and Baek, Seung-Hwan and Cho, Sunghyun},
+@inproceedings{kim2026debir,
+  title={Dynamic Exposure Burst Image Restoration},
+  author={Kim, Woohyeok and Rim, Jaesung and Kim, Daeyeon and Cho, Sunghyun},
   booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
-  pages={26067--26076},
-  year={2024}
+  year={2026}
 }
 ```
