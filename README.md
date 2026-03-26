@@ -39,18 +39,18 @@ Burst image restoration aims to reconstruct a high-quality image from burst imag
 [\[Dataset example\]](https://drive.google.com/drive/folders/1ZCi3ZXLeM7Ary6eWlVaVTTDm-kWcXWjU?usp=sharing) [\[Official weights\]](https://drive.google.com/drive/folders/1ZCi3ZXLeM7Ary6eWlVaVTTDm-kWcXWjU?usp=sharing)
 
 
-        ########## [Stage-1] ##########
+        # [Stage-1]
         CUDA_VISIBLE_DEVICES=0,1,2,3 python train_stage1.py
         
-        ########## [Stage-2] ##########
+        # [Stage-2]
         CUDA_VISIBLE_DEVICES=0 python prepare_stage2w.py # make pseudo-gt 
         CUDA_VISIBLE_DEVICES=0,1,2,3 python train_stage2w.py # stage-2 warm-up
         CUDA_VISIBLE_DEVICES=0,1,2,3 python train_stage2m.py # stage-2 main
         
-        ########## [Stage-3] ##########
+        # [Stage-3]
         CUDA_VISIBLE_DEVICES=0,1,2,3 python train_stage3.py
 
-### >> Test
+### Test
  
         CUDA_VISIBLE_DEVICES=0 python test.py
 
