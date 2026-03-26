@@ -23,7 +23,7 @@ Burst image restoration aims to reconstruct a high-quality image from burst imag
 
       CUDA_VISIBLE_DEVICES=0 python interpolate_gopro_x8.py
 
-* Synthesize dataset for stage-1 training
+* Synthesize dataset for [stage-1] training
 
       CUDA_VISIBLE_DEVICES=0 python synthesize_dataset_for_stage1.py
 
