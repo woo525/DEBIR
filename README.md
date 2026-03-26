@@ -5,7 +5,7 @@
 [\[Paper\]](https://arxiv.org/abs/2603.21784)
 [\[Project Page\]](https://woo525.github.io/DEBIR/)
 
-![overview](https://github.com/woo525/ParamISP/assets/32587029/b4bb291f-14e4-42dd-8642-518752843cc3)
+![overview](https://github.com/woo525/DEBIR/blob/gh-pages/static/image/pipeline.png)
 
 ### Abstract
 
