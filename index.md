@@ -29,6 +29,7 @@ Furthermore, we validate the effectiveness of our approach on a real-world camer
 </div>
 
 ---
+![quantitative](/static/image/CVPR26_DEBIR_thumb_for_github.png)
 
 ## Method
 ![pipeline](/static/image/pipeline.png) <span style="color:gray"> *Overview of our pipeline. BAENet predicts the exposure times of each burst image from a preview image. Differentiable Burst Simulator generates burst images according to the exposure times. The restoration network then reconstructs a high-quality image from them. During inference, the simulator is removed, and the restoration network processes real burst images captured by our camera system.* </span>
